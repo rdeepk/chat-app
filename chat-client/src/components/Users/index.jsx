@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import openSocket from 'socket.io-client';
+const socket = openSocket();
 
-class Message extends Component {
+
+class Users extends Component {
     constructor() {
         super();
         // this.state = {
@@ -9,10 +12,10 @@ class Message extends Component {
     }
     render() {
         return(
-            <div>
+            <div>{this.props.username}
             </div>
         )
     }
 }
 
-export default Message;
+export default Users;

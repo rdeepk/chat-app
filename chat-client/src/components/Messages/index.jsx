@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimeAgo from 'react-timeago';
 
 class Messages extends Component {
     render() {
@@ -7,6 +8,7 @@ class Messages extends Component {
                         <div className="image">
                             <img alt="identity" src="http://www.gravatar.com/avatar/14a0e497ba1414d24b40083916bf420d?s=140&amp;r=x&amp;d=mm" />
                             <b>{message.username}</b>
+                            <TimeAgo date={message.time} minPeriod="30" />
                         </div>
                         <p>{message.message}</p>
                     </li>

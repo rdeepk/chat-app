@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import {Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import './App.css';
 import ChatContainer from '../ChatContainer';
 
@@ -42,7 +42,10 @@ class App extends Component {
       </div>
         </div>
       </div> }
-      {this.state.submitted && <ChatContainer username={this.state.username} /> }
+      {this.state.submitted && 
+      <ChatContainer username={this.state.username} />
+      // <Route path="/chat" render={(props) => (<ChatContainer username={this.state.username} />)} />
+       }
     </div>
     );
   }

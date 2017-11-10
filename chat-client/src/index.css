@@ -128,7 +128,7 @@ textarea {
 .image {
     clear: both;
     float: left;
-    height: 60px;
+    height: 100px;
     text-align: center;
     overflow: hidden;
 }
@@ -162,4 +162,12 @@ textarea {
     color: #637277;
     line-height: 1.4;
     word-wrap: break-word;
+}
+
+.image time {
+    font-size: 12px;
+    line-height: 1.2;
+    display: block;
+    opacity: 0.8;
+    padding-top: 4px;
 }

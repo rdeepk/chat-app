@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Messages from '../Messages';
 import ChatInput from '../ChatInput';
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8080');
+import Users from '../Users';
+const socket = openSocket();
+
 
 class ChatContainer extends Component {  
   constructor() { 
@@ -16,10 +18,15 @@ class ChatContainer extends Component {
       }); 
    }
 
+   getTime = () => {
+    let today = new Date();
+    return today;
+   }
+
   addMessage = (username, message) => {
     // Append the message to the component state
     const messages = this.state.messages;
-    messages.push({username: username, message: message});
+    messages.push({username: username, message: message, time: this.getTime()});
     this.setState({ messages });
   }
 
@@ -37,10 +44,32 @@ class ChatContainer extends Component {
    } 
 
    render() {
+     
      return ( 
          <div>
-            <Messages messages={this.state.messages}/>
-            <ChatInput handleOnSubmit={this.handleOnSubmit} handleOnChange={this.handleOnChange} input={this.state.input} />
+           <div className="row">
+            <div className="col-sm-12">
+              <div className="row">
+                <div className="col-sm-4">
+                  <Users username={this.props.username}/>
+                </div>
+                <div className="col-sm-8">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <Messages messages={this.state.messages}/>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <ChatInput handleOnSubmit={this.handleOnSubmit} handleOnChange={this.handleOnChange} input={this.state.input} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+            
+            
         </div>
           )
         }
