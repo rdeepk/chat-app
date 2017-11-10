@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 app.set('view engine', 'html');
 var io = require('socket.io').listen(app.listen(port));
 
@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 //app.listen(port);
 
   io.on('connection', function(socket){
-      
+      console.log("connected user")
     socket.on('chat message', function(msg){
       console.log('message: ' + msg);
       io.emit('chat message', msg);
