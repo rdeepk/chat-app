@@ -11,11 +11,11 @@ app.engine('html', require('ejs').renderFile);
 // Tell express where it can find the templates
 app.set('views', __dirname + '/views');
 
-app.get('/', function (req, res) {
+// app.get('/', function (req, res) {
 
-    // Render views/home.html
-    res.render('home');
-});
+//     // Render views/home.html
+//     res.render('home');
+// });
 
 //app.listen(port);
 
