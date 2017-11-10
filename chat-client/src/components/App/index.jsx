@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+//import {Route} from 'react-router-dom';
 import './App.css';
 import ChatContainer from '../ChatContainer';
 
@@ -23,12 +23,12 @@ class App extends Component {
     <div>
       <h1>React Instant Chat</h1>
       {!this.state.submitted &&
-      <div class="connected">
-        <img src="../img/unnamed.jpg" id="creatorImage" />
-        <div class="infoConnected">
+      <div className="connected">
+        <img src="../img/unnamed.jpg" alt="identity" id="creatorImage" />
+        <div className="infoConnected">
           <h2>Who are you?</h2>
           <br/>
-          <form class="loginForm" onSubmit={this.usernameSubmitHandler}>
+          <form className="loginForm" onSubmit={this.usernameSubmitHandler}>
             <input type="text" id="yourUsername" placeholder="Enter a username..." onChange={this.usernameChangeHandler} required/><br/>
             <input type="submit" id="yourEnter" value="ENTER" />
           </form>
