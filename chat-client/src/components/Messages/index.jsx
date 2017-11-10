@@ -12,7 +12,7 @@ class Messages extends Component {
                     </li>
         })
         return(
-            <div class="chatscreen" style={{display: "block"}}>
+            <div className="chatscreen" style={{display: "block"}}>
                 <ul className="chats">{messagesJSX}</ul>
             </div>
         )
