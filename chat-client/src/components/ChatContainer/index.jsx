@@ -12,14 +12,14 @@ class ChatContainer extends Component {
         messages: []
       }
       socket.on('server:message', message => {
-        this.addMessage(message);
+        this.addMessage(message.username, message.message);
       }); 
    }
 
-  addMessage = (message) => {
+  addMessage = (username, message) => {
     // Append the message to the component state
     const messages = this.state.messages;
-    messages.push(message);
+    messages.push({username: username, message: message});
     this.setState({ messages });
   }
 
@@ -29,8 +29,8 @@ class ChatContainer extends Component {
 
    handleOnSubmit = (ev) => {
      ev.preventDefault();
-     this.addMessage(this.state.input);
-     socket.emit('chat message', this.state.input)
+     this.addMessage(this.props.username,this.state.input);
+     socket.emit('chat message', {username: this.props.username,message: this.state.input})
        this.setState({
         input: ''
       })

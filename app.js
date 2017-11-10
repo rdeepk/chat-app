@@ -16,7 +16,6 @@ app.engine('html', require('ejs').renderFile);
 app.set('views', __dirname + '/views');
 
   io.on('connection', function(socket){
-      console.log("connected user")
     socket.on('chat message', function(msg){
       console.log('message: ' + msg);
       socket.broadcast.emit('server:message', msg)

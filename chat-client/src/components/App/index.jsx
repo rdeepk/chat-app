@@ -20,27 +20,22 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>React Instant Chat</h1>
-        {!this.state.submitted &&
+    <div>
+      <h1>React Instant Chat</h1>
+      {!this.state.submitted &&
       <div class="connected">
-
-			<img src="../img/unnamed.jpg" id="creatorImage" />
-
-			<div class="infoConnected">
-				<h2>Who are you?</h2>
-				<br/>
-
-				<form class="loginForm" onSubmit={this.usernameSubmitHandler}>
-					<input type="text" id="yourUsername" placeholder="Enter a username..." onChange={this.usernameChangeHandler} required/><br/>
-					<input type="submit" id="yourEnter" value="ENTER" />
-				</form>
-
-			</div>
-
-		</div> }
+        <img src="../img/unnamed.jpg" id="creatorImage" />
+        <div class="infoConnected">
+          <h2>Who are you?</h2>
+          <br/>
+          <form class="loginForm" onSubmit={this.usernameSubmitHandler}>
+            <input type="text" id="yourUsername" placeholder="Enter a username..." onChange={this.usernameChangeHandler} required/><br/>
+            <input type="submit" id="yourEnter" value="ENTER" />
+          </form>
+        </div>
+      </div> }
       {this.state.submitted && <ChatContainer username={this.state.username} /> }
-      </div>
+    </div>
     );
   }
 }
