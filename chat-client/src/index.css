@@ -13,7 +13,6 @@ h1 {
 	text-align:center;
 	display: block;
 	margin:0px auto;
-	width: 700px;
 	height: 400px;
 	background-color: #ffffff;
 	border-radius: 3px;
@@ -28,6 +27,17 @@ h1 {
 	float: right;
 	margin: 65px 165px 0 0;
 }
+
+button {
+    margin: 20px;
+    background: #111;
+    padding: 20px 25px;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
 #creatorImage {
 	float: left;
 	margin: 90px 0 0 140px;
@@ -68,15 +78,15 @@ h1 {
 
 .chatscreen {
     display: none;
-    width: 700px;
+    width: 900px;
     margin: 0 auto 200px;
     overflow: hidden;
 }
 
 #chatform {
-    width: 700px;
+    width: 900px;
     margin: 0 auto;
-    background-color: white;
+    /* background-color: white; */
 }
 
 textarea {
@@ -118,16 +128,15 @@ textarea {
 .image {
     clear: both;
     float: left;
-    height: 160px;
-    width: 80px;
+    height: 60px;
     text-align: center;
     overflow: hidden;
 }
 
 .image img {
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -141,9 +150,8 @@ textarea {
 .chats .me p {
     text-align: left;
     float: left;
+    margin: 0 0 30px 20px;
     display: inline-block;
-    margin-left: 20px;
-    margin-bottom: 30px;
     padding: 25px 34px;
     min-width: 160px;
     min-height: 10px;
