@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 var port = process.env.PORT || 8080;
 app.set('view engine', 'html');
 var io = require('socket.io').listen(app.listen(port));
