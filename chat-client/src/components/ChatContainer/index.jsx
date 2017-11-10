@@ -10,29 +10,28 @@ class ChatContainer extends Component {
       this.state = { 
         input: '',
         messages: []
-      } 
+      }
+      socket.on('server:message', message => {
+        this.addMessage(message);
+      }); 
    }
 
-  // componentDidMount(){ 
-  //   this._handleMessageEvent()
-  //  } 
-
-  //  _handleMessageEvent = () => {
-  //    socket.on('chat message', (inboundMessage) => {
-  //      this.props.newMessage({user: 'test_user', message: inboundMessage})
-  //       })
-  //    } 
+  addMessage = (message) => {
+    // Append the message to the component state
+    const messages = this.state.messages;
+    messages.push(message);
+    this.setState({ messages });
+  }
 
    handleOnChange = (ev) => { 
      this.setState({ input: ev.target.value })
    }
 
    handleOnSubmit = (ev) => {
-     ev.preventDefault() 
-     this.state.messages.push(this.state.input);
+     ev.preventDefault();
+     this.addMessage(this.state.input);
      socket.emit('chat message', this.state.input)
        this.setState({
-        messages: this.state.messages,
         input: ''
       })
    } 
@@ -47,13 +46,4 @@ class ChatContainer extends Component {
         }
      }
 
-// function mapStateToProps(state, ownProps) {  
-//   return { messages: state.messages } 
-//  } 
-
-// function mapDispatchToProps(dispatch) {  
-//   return bindActionCreators({ newMessage: messagesActions.newMessage}, dispatch) 
-// } 
-
-// export default connect(mapStateToProps, mapDispatchToProps(ChatContainer))
 export default ChatContainer;

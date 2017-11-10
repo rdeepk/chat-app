@@ -15,18 +15,10 @@ app.engine('html', require('ejs').renderFile);
 // Tell express where it can find the templates
 app.set('views', __dirname + '/views');
 
-// app.get('/', function (req, res) {
-
-//     // Render views/home.html
-//     res.render('home');
-// });
-
-//app.listen(port);
-
   io.on('connection', function(socket){
       console.log("connected user")
     socket.on('chat message', function(msg){
       console.log('message: ' + msg);
-      io.emit('chat message', msg);
+      socket.broadcast.emit('server:message', msg)
     });
   });
