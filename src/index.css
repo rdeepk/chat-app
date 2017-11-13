@@ -171,3 +171,43 @@ textarea {
     opacity: 0.8;
     padding-top: 4px;
 }
+
+
+#side-bar {
+    padding: 20px;
+    background: #a6d0e4;
+}
+
+.app-name {
+    margin: 40px 0;
+}
+
+.search-icon, .user-photo {
+    margin: 0 10px 0 0;
+}
+
+.search input {
+    padding: 10px;
+    margin-left: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.current-user {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#side-bar g {
+    cursor: pointer;
+    padding: 2px;
+}
+
+#side-bar   .user {
+    margin: 40px 0;
+}
+
+.chat-header {
+    padding: 40px 0;
+    background: #ccc;
+}
