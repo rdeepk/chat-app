@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import ChatContainer from './ChatContainer';
 
 
-//const socketUrl = 'http://localhost:8080/'
+const socketUrl = 'http://localhost:8080/'
 class App extends Component {
   constructor() {
     super();
@@ -16,14 +16,13 @@ class App extends Component {
   }
 
   componentWillMount() {
-		var socket = io()
+		var socket = io(socketUrl)
 		this.setState({ socket })
 		this.initSocket(socket)
 	}
 	
 	initSocket = (socket) => {
 		socket.on('connect', (value)=>{
-			console.log("Connected");
     })
     this.setState({socket});
 		//socket.on('disconnect', this.reconnectUserInfo)
@@ -32,7 +31,6 @@ class App extends Component {
   setUser = (user) => {
 		const { socket } = this.state
     this.setState({user});
-    console.log(user.name);
 		socket.emit(USER_CONNECTED, user);
   }
   

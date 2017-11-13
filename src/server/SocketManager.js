@@ -22,13 +22,11 @@ const {
 let communityChat = createChat();
 
 module.exports = function (socket) {
-    console.log(socket.id);
 
     let sendMessageToChatFromUser;
     let sendTypingFromUser;
 
     socket.on(VERIFY_USER, function (newUser, callback) {
-        console.log("heree");
         if (!isUser(connectedUsers, newUser)) {
 
             callback({
@@ -64,8 +62,8 @@ module.exports = function (socket) {
 
     //user disconnects 3
     socket.on('disconnect', function () {
-        if (!!socket.user) {
-            connectedUsers = removeUser(connectedUsers, socket.user)
+        if ("user" in socket) {
+            connectedUsers = removeUser(connectedUsers, socket.user.name)
 
             io.emit(USER_DISCONNECTED, connectedUsers)
         }
@@ -74,12 +72,11 @@ module.exports = function (socket) {
 
     //user logout 4
     socket.on(LOGOUT, function () {
-        connectedUsers = removeUser(connectedUsers, socket.user)
+        connectedUsers = removeUser(connectedUsers, socket.user.name)
     })
 
     //send community chat 5
     socket.on(COMMUNITY_CHAT, function (callback) {
-        console.log("community backend");
         callback(communityChat)
     })
 
@@ -90,7 +87,6 @@ module.exports = function (socket) {
 
     //add user to typing users on chatId 7
     socket.on(TYPING, function ({ chatId, isTyping }) {
-        console.log("on typing" ,isTyping);
         sendTypingFromUser(chatId, isTyping);
     })
 

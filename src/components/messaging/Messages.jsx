@@ -21,7 +21,6 @@ export default class Messages extends Component {
 
 	render() {
         const { messages, user, typingUsers } = this.props;
-        console.log("typing usrs: " ,typingUsers);
 		return (
 			<div ref={'container'} 
 					className="thread-container">
