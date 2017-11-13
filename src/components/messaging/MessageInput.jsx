@@ -62,9 +62,6 @@ export default class MessageInput extends Component {
 			this.props.sendTyping(false)
 		}
 	}
-	// blur = ()=>{
-	// 	this.refs.messageinput.blur()
-    // }
     
 	render() {
 		const { message } = this.state

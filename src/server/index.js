@@ -8,9 +8,4 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('chat-client/build'));
 }
 
-
-
-
-
-
-  io.on('connection', SocketManager);
+io.on('connection', SocketManager);

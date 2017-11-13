@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-
-import SideBar from './SideBar'
-
-// import { User } from '../../Classes'
-import Messages from './messaging/Messages'
-import MessageInput from './messaging/MessageInput'
-import ChatHeading from './ChatHeading'
-
- import { COMMUNITY_CHAT, MESSAGE_RECIEVED, MESSAGE_SENT, TYPING, PRIVATE_MESSAGE } from '../events'
+import SideBar from './SideBar';
+import Messages from './messaging/Messages';
+import MessageInput from './messaging/MessageInput';
+import ChatHeading from './ChatHeading';
+import { COMMUNITY_CHAT, MESSAGE_RECIEVED, MESSAGE_SENT, TYPING, PRIVATE_MESSAGE } from '../events'
 
 export default class ChatContainer extends Component {
 	

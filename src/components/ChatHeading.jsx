@@ -4,7 +4,6 @@ import FAUserPlus from 'react-icons/lib/fa/user-plus'
 import MdEllipsisMenu from 'react-icons/lib/md/keyboard-control'
 
 export default function({name, numberOfUsers, online}) {
-		// const { name, online, numberOfUsers } = this.props
 		const onlineText = online ? 'online':'offline'
 		return (
 			<div className="chat-header">
@@ -15,8 +14,8 @@ export default function({name, numberOfUsers, online}) {
                         </div>
                         <div className="col-sm-6">
                             <span className="status">
-                            {/* <div className={`indicator ${onlineText}`}></div> */}
-                            {/* <span>{numberOfUsers ? numberOfUsers : null} online</span> */}
+                            {/* <div className={`indicator ${onlineText}`}></div>
+                            <span>{numberOfUsers ? numberOfUsers : null} online</span> */}
                             </span>
                             <span className="options">
                                 <FAVideo />
