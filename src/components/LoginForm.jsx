@@ -39,23 +39,29 @@ class LoginForm extends Component {
   render() {
     const {nickname, error} = this.state;
     return (
-      <div className=""><div className="row">
-      <div className="col-sm-offset-2 col-sm-8">
+    <div className="login">
       <div className="connected">
-      <img src="../img/unnamed.jpg" alt="identity" id="creatorImage" />
-      <div className="infoConnected">
-        <h2>Who are you?</h2>
-        <br/>
-        <form className="loginForm" onSubmit={this.usernameSubmitHandler}>
-          <input type="text" id="yourUsername" placeholder="Enter a username..." onChange={this.usernameChangeHandler} required/><br/>
-          <input type="submit" id="yourEnter" value="ENTER" />
-        </form>
-        <div className="error">{error? error: null}</div>
+        <div className="row">
+        <div className="col-sm-5">
+          <img src="../img/unnamed.jpg" alt="identity" id="creatorImage" />
+        </div>
+        <div className="col-sm-7">
+          <div className="infoConnected">
+          <form className="loginForm" onSubmit={this.usernameSubmitHandler}>
+            <div class="form-group">
+							<label for="username">Who are you? </label>
+							<input type="text" id="username" placeholder="Enter a username..." onChange={this.usernameChangeHandler} className="form-control" required="required"/>
+						</div>
+            <input type="submit" id="yourEnter" value="ENTER" />
+          </form>
+          <div className="error">{error? error: null}</div>
+          </div>
+        </div>
+      </div>
+      
+      
       </div>
     </div>
-      </div>
-    </div>
-      </div>
     );
   }
 }
