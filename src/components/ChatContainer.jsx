@@ -16,10 +16,8 @@ export default class ChatContainer extends Component {
 	
 	  this.state = {
 	  	 activeChat:null,
-	  	// communityChat:null,
 	  	 chats:[]
 	  };
-	//   this.socketEvents = [] //used to deinitialize socket events later
 	}
 
 	componentDidMount() {
@@ -30,13 +28,11 @@ export default class ChatContainer extends Component {
     }
     
     sendOpenPrivateMessage = (reciever) => {
-		const { socket, user } = this.props
-		socket.emit(PRIVATE_MESSAGE, {reciever, sender:user.name})
+        const { socket, user } = this.props
+        const { activeChat } = this.state;
+		socket.emit(PRIVATE_MESSAGE, {reciever, sender:user.name, activeChat})
 	}
 
-	// componentWillUnmount() {
-	// 	this.deinitialize()
-	// }
 	
 	/*
 	*	Initializes the socket.
@@ -46,22 +42,6 @@ export default class ChatContainer extends Component {
         socket.on('connect', ()=>{ socket.emit(COMMUNITY_CHAT, this.resetChat) })
         socket.on(PRIVATE_MESSAGE, this.addChat);
 	}
-
-	// deinitialize(){
-	// 	const { socket } = this.props
-	// 	this.removeSocketEvents(socket, this.socketEvents)
-	// }
-
-	/*
-	*	Removes chat event listeners on socket.
-	*/
-	// removeSocketEvents(socket, events){
-
-	// 	if(events.length > 0){
-	// 		socket.off(events[0])
-	// 		this.removeSocketEvents(socket, events.slice(1))
-	// 	}
-	// }
 
 	/*
 	*	Reset the chat back to only the chat passed in.
@@ -96,8 +76,6 @@ export default class ChatContainer extends Component {
 
 		socket.on(messageEvent, this.addMessageToChat(chat.id))
 		socket.on(typingEvent, this.updateTypingInChat(chat.id))
-		
-		// this.socketEvents.push(messageEvent, typingEvent) // used to remove event listerners
 	}
 
 	/*
