@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-		var socket = io(socketUrl)
+		var socket = io()
 		this.setState({ socket })
 		this.initSocket(socket)
 	}
