@@ -17,7 +17,6 @@ h1 {
 
 .chat-container {
     background: #fff;
-    box-shadow: 0 3px 3px #e3e4e6;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -358,6 +357,14 @@ textarea {
     .user-photo #creatorImage {
         display: inline-block;
         margin: 10px 0;
+    }
+
+    .chat-header {
+        border-top-left-radius: 10px;
+    }
+
+    .current-user {
+        border-bottom-right-radius: 10px;
     }
     
 }
