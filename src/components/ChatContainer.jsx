@@ -144,8 +144,9 @@ export default class ChatContainer extends Component {
 		const { user, logout } = this.props 
 		 const { activeChat, chats } = this.state
 		return (
-                <div className="row">
-                    <div className="col-sm-4">
+			<div className="chat-container">
+				<div className="row box">
+					<div className="col-sm-4 hidden-xs" id="side-bar">
                     <SideBar 
                         logout={logout}
                         chats={chats} 
@@ -153,32 +154,42 @@ export default class ChatContainer extends Component {
                         activeChat={activeChat}
                         setActiveChat={ (chat)=> this.setActiveChat(chat) }
                         onSendPrivateMessage={this.sendOpenPrivateMessage} />
-                    </div>
+					</div>
                     <div className="col-sm-8">
-                    <div className="chat-room-container">
 					{
 						activeChat !== null ? (
 							<div className="chat-room">
-								<ChatHeading 
-									name={activeChat.name} 
-									online={true} />
-								<Messages 
-									messages={activeChat.messages} 
-									user={user} 
-									typingUsers={activeChat.typingUsers}/>
-								
-								<MessageInput 
-									sendMessage={
-										(message)=>{ 
-											this.sendMessage(activeChat.id, message) 
-										}
-									} 
-									sendTyping={
-										(isTyping)=>{ 
-											this.sendTyping(activeChat.id, isTyping) 
-										}
-									}
-									/>
+								<div className="row">
+									<div className="col-xs-12 chat-header">
+										<ChatHeading 
+											name={activeChat.name} 
+											online={true} />
+									</div>
+								</div>
+								<div className="row">
+									<div className="col-xs-12 messages">
+										<Messages 
+											messages={activeChat.messages} 
+											user={user} 
+											typingUsers={activeChat.typingUsers}/>
+									</div>
+								</div>
+								<div className="row">
+									<div className="col-xs-12 message-input">
+										<MessageInput 
+											sendMessage={
+												(message)=>{ 
+													this.sendMessage(activeChat.id, message) 
+												}
+											} 
+											sendTyping={
+												(isTyping)=>{ 
+													this.sendTyping(activeChat.id, isTyping) 
+												}
+											}
+											/>
+										</div>
+									</div>
 							</div>
 							)
 						: 
@@ -186,9 +197,18 @@ export default class ChatContainer extends Component {
 								<h3>Choose a chat</h3>
 							</div>
 					}
-				</div>
+					<div className="col-sm-4 hidden-sm hidden-md hidden-lg" id="side-bar">
+                    <SideBar 
+                        logout={logout}
+                        chats={chats} 
+                        user={user}
+                        activeChat={activeChat}
+                        setActiveChat={ (chat)=> this.setActiveChat(chat) }
+                        onSendPrivateMessage={this.sendOpenPrivateMessage} />
+					</div>
                     </div>
                 </div>
+			</div>
 		);
 	}
 }

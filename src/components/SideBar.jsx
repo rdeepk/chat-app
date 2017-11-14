@@ -23,25 +23,28 @@ export default class SideBar extends Component {
 		const { chats, activeChat, user, setActiveChat, logout } = this.props
 		const {reciever} = this.state;
 		return (
-			<div id="side-bar">
+			<div>
 				<div className="row">
-					<div className="col-sm-12 app-name">
-						Zanjo Chat <FAChevronDown />
+					<div className="col-xs-12 app-name">
+						<p>Chat Application</p>
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-sm-12">
+					<div className="col-xs-12">
 					<form onSubmit={this.handleSubmit} className="search">
 					<i className="search-icon"><FASearch /></i>
 					<input 
 						placeholder="Search" 
 						type="text"
 						value={reciever}
+						className="form-control"
 						onChange={(e)=>{ this.setState({reciever:e.target.value}) }}/>
 					<div className="plus"></div>
 				</form>
 					</div>
 				</div>
+				<div className="row">
+				<div className="col-xs-12">
 				<div
 					className="users"
 					ref='users'
@@ -55,18 +58,23 @@ export default class SideBar extends Component {
 								}) || "Community"
 								const classNames = (activeChat && activeChat.id === chat.id) ? 'active' : ''
 								return (
+									<div className="row">
+									<div className="col-xs-12">
 									<div
 										key={chat.id}
 										className={`user ${classNames}`}
 										onClick={() => { setActiveChat(chat) }}
 									>
 										<div className="row">
-											<div className="col-sm-12 user-info">
-												<span className="user-photo">{chatSideName[0].toUpperCase()}</span>
-												<span className="name">{chatSideName}</span>
-												{lastMessage && <div className="last-message">{lastMessage.message}</div>}
+											<div className="col-xs-12 user-info">
+												<p>
+												<span className="user-photo"><img src="../img/unnamed.jpg" alt="identity" id="creatorImage" /></span>
+												<span className="name">{chatSideName}</span></p>
+												{/* {lastMessage && <div className="last-message">{lastMessage.message}</div>} */}
 											</div>
 										</div>
+									</div>
+									</div>
 									</div>
 								)
 							}
@@ -76,14 +84,12 @@ export default class SideBar extends Component {
 					}
 
 				</div>
-				<div className="row current-user">
-					<div className="col-sm-8">
-						<span>{user.name}</span>
-					</div>
-					<div className="col-sm-4">
-						<div onClick={() => { logout() }} title="Logout" className="logout">
-							<MdEject />
-						</div>
+				</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-12 current-user">
+						<span className="username">{user.name}</span>
+						<span onClick={() => { logout() }} title="Logout" className="logout pull-right">Logout</span>
 					</div>
 				</div>
 			</div>

@@ -94,7 +94,7 @@ module.exports = function (socket) {
 		if(reciever in connectedUsers){
             const recieverSocket = connectedUsers[reciever].socketId
             if(activeChat === null || activeChat.id === communityChat.id) {
-			const newChat = createChat({ name:`${reciever}&${sender}`, users:[reciever, sender] })
+			const newChat = createChat({ name:`${reciever} & ${sender}`, users:[reciever, sender] })
 			socket.to(recieverSocket).emit(PRIVATE_MESSAGE, newChat)
             socket.emit(PRIVATE_MESSAGE, newChat)
             } else {

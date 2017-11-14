@@ -27,13 +27,16 @@ export default class Messages extends Component {
 					<div className="thread">
 					{
 						messages.map((mes, i)=>{
-							
 							return( 
-							<div key={mes.id} className={`message-container ${mes.sender === user.name && 'right'}`}>
-								<div className="time">{mes.time}</div>
-								<div className="data">
-									<div className="message">{mes.message}</div>
-									<div className="name">{mes.sender}</div>
+							<div className="row">
+								<div className="col-xs-12">
+									<div key={mes.id} className={`message-container ${mes.sender === user.name && 'right'}`}>
+										<span className="data">
+										<div className="time">{mes.time}</div>
+										<div className="name">{mes.sender !== user.name ? mes.sender: ''}</div>
+										</span>
+										<span className="message">{mes.message}</span>
+									</div>
 								</div>
 							</div>)
 						})
