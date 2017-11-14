@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import ChatContainer from './ChatContainer';
 
 
-const socketUrl = 'http://localhost:8080/'
+//const socketUrl = 'http://localhost:8080/'
 class App extends Component {
   constructor() {
     super();
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-		var socket = io(socketUrl)
+		var socket = io()
 		this.setState({ socket })
 		this.initSocket(socket)
 	}
