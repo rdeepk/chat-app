@@ -143,6 +143,8 @@ export default class ChatContainer extends Component {
 	render() {
 		const { user, logout } = this.props 
 		 const { activeChat, chats } = this.state
+		 console.log("active", activeChat);
+		 console.log("chats", chats);
 		return (
 			<div className="chat-container">
 				<div className="row box">
