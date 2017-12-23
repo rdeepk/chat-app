@@ -42,14 +42,13 @@ module.exports = function (socket) {
                 isUser: true,
                 user: null
             })
-
         }
-
     })
 
 
     //userconnects 2
     socket.on(USER_CONNECTED, function (user) {
+        console.log("connected  ",user.name)
         user.socketId = socket.id;
         connectedUsers = addUser(connectedUsers, user)
         socket.user = user;

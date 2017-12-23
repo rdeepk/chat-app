@@ -49,7 +49,7 @@ class LoginForm extends Component {
           <div className="infoConnected">
           <form className="loginForm" onSubmit={this.usernameSubmitHandler}>
             <div class="form-group">
-							<label for="username">Tell me about yourself...</label>
+							<label for="username">Login</label>
 							<input type="text" id="username" placeholder="Enter a username..." onChange={this.usernameChangeHandler} className="form-control" required="required"/>
 						</div>
             <input type="submit" id="yourEnter" value="Submit" className="btn btn-primary" />
